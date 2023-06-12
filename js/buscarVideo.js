@@ -1,7 +1,10 @@
-import { conectaApi } from "./conectaApi";
+import { conectaApi } from "./conectaApi.js";
+import constroiCard from "./mostrarVideos.js";
+
 
 /**
- * This function searches for a video using data input and an API connection.
+ * This function searches for a video using data input and constructs a card with the video's
+ * information.
  */
 async function buscarVideo(){
     evento.preventDefault();
@@ -9,7 +12,8 @@ async function buscarVideo(){
     const dadosDePesquisa = document.querySelector("[data-pesquisa]").value;
     const busca = await conectaApi.buscaVideo(dadosDePesquisa);
 
-    console.log(busca);
+    const lista = document.querySelector("[data-lista]");
+    busca.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
 };
 
 /* This code is adding an event listener to the `botaoDePesquisa` element, which is a button that
