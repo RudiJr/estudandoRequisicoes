@@ -1,8 +1,7 @@
 import { conectaApi } from "./conectaApi.js";
-
 const formulario = document.querySelector("[data-formulario]");
 
-async function criarVideo(evento){
+async function criarVideo(evento) {
     evento.preventDefault();
 
     const imagem = document.querySelector("[data-imagem]").value;
@@ -23,4 +22,4 @@ async function criarVideo(evento){
 /* This line of code is adding an event listener to the `formulario` element that listens for a
 "submit" event. When the event is triggered (i.e. the user submits the form), the `criarVideo`
 function is called with the event obj'ect passed as an argument. */
-formulario.addEventListener('submit', evento => criarVideo(evento));
+formulario.addEventListener("submit", evento => criarVideo(evento));
