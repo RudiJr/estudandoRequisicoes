@@ -29,6 +29,10 @@ async function buscarVideo(evento) {
     element to the `lista` element. In other words, it is adding a card with information about each
     video to a list on the webpage. */
     busca.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
+
+    if(busca.length == 0){
+      lista.innerHTML = `<h2 class="mensagem__titulo">Não existem mensagem com esse termo</h2>`
+    };
 };
 
 /* This code is adding an event listener to the `botaoDePesquisa` element, which is a button that
