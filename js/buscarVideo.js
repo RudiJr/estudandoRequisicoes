@@ -5,13 +5,13 @@ import constroiCard from "./mostrarVideos.js";
  * This is an async function that searches for a video using data from a form input, connects to an
  * API, and constructs a card with information about the video.
  */
-async function buscarVideo(){
+async function buscarVideo(evento) {
  /* `evento.preventDefault();` is preventing the default behavior of the event. In this case, it is
  preventing the default behavior of a form submission, which would cause the page to reload. By
  calling `preventDefault()`, the function is able to handle the form submission without reloading
  the page. */
     evento.preventDefault();
-
+    
     const dadosDePesquisa = document.querySelector("[data-pesquisa]").value;
     const busca = await conectaApi.buscaVideo(dadosDePesquisa);
 
@@ -35,4 +35,4 @@ async function buscarVideo(){
 triggers a search for a video. The event listener is listening for a 'click' event on the button,
 and when the event is triggered, it calls the `buscarVideo` function with the `evento` parameter. */
 const botaoDePesquisa = document.querySelector("[data-botao-pesquisa]");
-botaoDePesquisa.addEventListener('click', evento => buscarVideo(evento));
+botaoDePesquisa.addEventListener("click", evento => buscarVideo(evento))
