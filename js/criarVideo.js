@@ -2,7 +2,7 @@ import { conectaApi } from "./conectaApi";
 
 const formulario = document.querySelector("[data-formulario]");
 
-function criarVideo(evento){
+async function criarVideo(evento){
     evento.preventDefault();
 
     const imagem = document.querySelector("[data-imagem]").value;
@@ -15,7 +15,7 @@ function criarVideo(evento){
     variable `descricao`. */
     const descricao = Math.floor(Math.random() * 10).toString();
 
-    conectaApi.criaVideo(titulo, descricao, url, imagem);
+    await conectaApi.criaVideo(titulo, descricao, url, imagem); // <- mesma ordem do conecta Api (titulo, descricao, url, imagem)
 };
 
 /* This line of code is adding an event listener to the `formulario` element that listens for a
