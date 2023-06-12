@@ -13,10 +13,13 @@ async function criarVideo(evento) {
     The resulting number is then converted to a string using `.toString()` and assigned to the
     variable `descricao`. */
     const descricao = Math.floor(Math.random() * 10).toString();
+    try{
+        await conectaApi.criaVideo(titulo, descricao, url, imagem); // <- mesma ordem do conecta Api (titulo, descricao, url, imagem)
 
-    await conectaApi.criaVideo(titulo, descricao, url, imagem); // <- mesma ordem do conecta Api (titulo, descricao, url, imagem)
-
-    window.location.href = "../pages/envio-concluido.html";
+        window.location.href = "../pages/envio-concluido.html";
+    }catch(e){
+        alert(e);
+    };
 };
 
 /* This line of code is adding an event listener to the `formulario` element that listens for a
