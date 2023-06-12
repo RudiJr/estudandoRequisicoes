@@ -16,6 +16,8 @@ async function criarVideo(evento){
     const descricao = Math.floor(Math.random() * 10).toString();
 
     await conectaApi.criaVideo(titulo, descricao, url, imagem); // <- mesma ordem do conecta Api (titulo, descricao, url, imagem)
+
+    window.location.href = "../pages/envio-concluido.html";
 };
 
 /* This line of code is adding an event listener to the `formulario` element that listens for a
