@@ -1,3 +1,5 @@
+import { conectaApi } from "./conectaApi";
+
 const formulario = document.querySelector("[data-formulario]");
 
 function criarVideo(evento){
@@ -12,6 +14,8 @@ function criarVideo(evento){
     The resulting number is then converted to a string using `.toString()` and assigned to the
     variable `descricao`. */
     const descricao = Math.floor(Math.random() * 10).toString();
+
+    conectaApi.criaVideo(titulo, descricao, url, imagem);
 };
 
 /* This line of code is adding an event listener to the `formulario` element that listens for a
